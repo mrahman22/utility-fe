@@ -1,3 +1,23 @@
 .App {
   text-align: center;
 }
+
+header {
+  background-color: brown;
+  color: white;
+  padding: 10px;
+}
+
+.products ul {
+  margin-top: 20px;
+}
+
+.products li {
+  border: 2px solid black;
+  list-style-type: none;
+  padding: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 20px;
+
+}
