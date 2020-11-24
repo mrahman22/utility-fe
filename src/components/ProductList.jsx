@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import PriceOrdering from "./PriceOrdering";
-import GroupBy from "./GroupBy";
+import SortBy from "./SortBy";
 import * as api from "../api";
+import GroupBy from "./GroupBy";
 
 export class ProductList extends Component {
   state = {
     products: [],
     isLoading: true,
+    isGroup: false
   };
 
   handleOrder = (order) => {
-    console.log(order)
     this.setState({ order: order });
   };
 
   handleGroup = (val) => {
-    console.log(val)
-    this.setState({sortBy: val})
+    this.setState({sortBy: val, isGroup: !this.state.isGroup})
   }
 
 
@@ -39,14 +39,14 @@ export class ProductList extends Component {
   };
 
   render() {
-    const { products, isLoading } = this.state;
+    const { products, isLoading, isGroup } = this.state;
     if (isLoading) return "Loading.....";
     return (
       <div>
-        <GroupBy handleGroup={this.handleGroup} />
+        <SortBy handleGroup={this.handleGroup} />
         <br />
         <PriceOrdering handleOrder={this.handleOrder} />
-        <ul className="products">
+        {!isGroup ? ( <ul className="products">
           {products.map((product) => {
             return (
               <li key={product._id}>
@@ -58,7 +58,7 @@ export class ProductList extends Component {
               </li>
             );
           })}
-        </ul>
+        </ul>) : <GroupBy products={products}/>}
       </div>
     );
   }

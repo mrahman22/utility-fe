@@ -5,7 +5,7 @@ const handleCors = "https://cors-anywhere.herokuapp.com";
 
 
 export const fetchProducts = (price, sortby) => {
-  console.log(price, sortby)
+  
 
 
   return axios
