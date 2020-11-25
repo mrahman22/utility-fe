@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import groupBy from "lodash/groupBy";
 
 export class GroupBy extends Component {
   state = {
@@ -22,12 +21,13 @@ export class GroupBy extends Component {
       <div>
         <ul className="groupby-products">
           {Object.keys(this.state.groupedProducts)
-            .sort()
+            .sort()    
             .map((product) => {
               return (
                 <li key={product}>
-                  <h2>{product}</h2>
-                  {products.map((products) => {
+                  <h2>{product}</h2> 
+                  {// eslint-disable-next-line
+}{products.map((products) => {
                     if (products.type === product) {
                       return (
                         <div className="groupby-items">
