@@ -43,6 +43,7 @@ export class ProductList extends Component {
     if (isLoading) return "Loading.....";
     return (
       <div>
+        <br />
         <SortBy handleGroup={this.handleGroup} />
         <br />
         <PriceOrdering handleOrder={this.handleOrder} />

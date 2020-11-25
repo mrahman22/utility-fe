@@ -17,11 +17,10 @@ export class GroupBy extends Component {
   }
 
   render() {
-    console.log(Object.values(this.state.groupedProducts));
     const { products } = this.props;
     return (
       <div>
-        <ul className="products">
+        <ul className="groupby-products">
           {Object.keys(this.state.groupedProducts)
             .sort()
             .map((product) => {
@@ -31,10 +30,11 @@ export class GroupBy extends Component {
                   {products.map((products) => {
                     if (products.type === product) {
                       return (
-                        <>
+                        <div className="groupby-items">
                           <p>{products.name}</p>
+                          <p>{products.description}</p>
                           <p>{products.price.value}</p>
-                        </>
+                        </div>
                       );
                     }
                   })}
